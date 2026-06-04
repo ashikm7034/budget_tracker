@@ -1,0 +1,402 @@
+# Project: MoneyMate AI
+
+## Vision
+
+A free AI-powered personal finance app for students that helps users:
+
+* Track expenses
+* Control overspending
+* Manage borrowed money (Kadam Vangiyath)
+* Track money others owe them
+* Save for goals
+* Analyze spending habits
+* Open UPI payment apps safely
+* Receive AI financial coaching
+
+Backend:
+
+* Google Sheets
+* Google Apps Script
+
+Frontend:
+
+* Flutter
+
+AI:
+
+* Gemini API (free tier)
+
+---
+
+# Features
+
+## Dashboard
+
+Show:
+
+* Current Balance
+* Monthly Income
+* Total Expenses
+* Savings
+* Pending Borrowed Amount
+* Pending Receivable Amount
+* Daily Budget Remaining
+
+---
+
+## Expense Tracker
+
+Fields:
+
+* Amount
+* Category
+* Note
+* Date
+* Payment Method
+
+Categories:
+
+* Tea
+* Snacks
+* Food
+* Travel
+* College
+* Recharge
+* Shopping
+* Subscription
+* Other
+
+Quick buttons:
+
+☕ Tea
+🍔 Snacks
+🚌 Travel
+
+---
+
+## Borrowed Money Tracker
+
+Track:
+
+* Person Name
+* Amount
+* Borrow Date
+* Due Date
+* Status
+
+Statuses:
+
+* Pending
+* Repaid
+
+---
+
+## Money Owed To Me
+
+Track:
+
+* Person Name
+* Amount
+* Date
+* Reminder Status
+
+One-click WhatsApp reminder.
+
+---
+
+## Savings Goals
+
+Create goals:
+
+* EMO Robot
+* Laptop
+* Bike
+* Emergency Fund
+
+Fields:
+
+* Goal Name
+* Target Amount
+* Current Saved Amount
+* Deadline
+
+Progress bar visualization.
+
+---
+
+## QR Payment Assistant
+
+User scans any UPI QR.
+
+Before opening GPay:
+
+Display:
+
+Current Balance
+Today's Spending
+Monthly Spending
+Savings Goal Impact
+
+Buttons:
+
+* Open GPay
+* Cancel
+
+---
+
+## AI Financial Coach
+
+Chat interface.
+
+Examples:
+
+"How much did I spend today?"
+
+"How much tea did I buy this month?"
+
+"Can I afford ₹250 headphones?"
+
+"How much money is Ajmal supposed to return?"
+
+AI answers using Google Sheets data.
+
+---
+
+## Spending Prediction
+
+AI predicts:
+
+* End-of-month balance
+* Overspending risk
+* Savings goal completion date
+
+---
+
+## Need vs Want Detector
+
+When user adds expense:
+
+Example:
+
+₹120 Burger
+
+AI asks:
+
+Need or Want?
+
+Stores response.
+
+Monthly reports show:
+
+Needs
+Wants
+
+---
+
+## Habit Detection
+
+AI detects:
+
+* Frequent tea purchases
+* Daily snacks
+* Repeated impulse purchases
+
+Example:
+
+"You spent ₹480 on tea this month."
+
+---
+
+## Budget Planner
+
+User enters:
+
+Monthly Income
+
+AI creates:
+
+Needs Budget
+Wants Budget
+Savings Budget
+
+---
+
+## Daily Budget Mode
+
+Example:
+
+Monthly Budget ₹1500
+
+30 days
+
+Daily Limit:
+
+₹50/day
+
+Track remaining daily allowance.
+
+---
+
+## Emergency Mode
+
+Trigger when balance falls below threshold.
+
+Show:
+
+⚠ Low Balance
+
+Recommendations:
+
+* Pause non-essential spending
+* Collect pending receivables
+
+---
+
+## Smart Reminders
+
+Examples:
+
+"Ajmal owes you ₹500."
+
+"You have exceeded your tea budget."
+
+"You haven't saved money this week."
+
+---
+
+## Reports
+
+Weekly Report
+
+Monthly Report
+
+Includes:
+
+* Expenses
+* Savings
+* Debt Summary
+* Spending Categories
+* AI Suggestions
+
+---
+
+# AI Prompts
+
+Expense Analysis Prompt
+
+Analyze the user's expense data and identify spending patterns, overspending categories, unnecessary purchases, and opportunities to save money. Provide actionable recommendations.
+
+---
+
+Budget Prompt
+
+Create a realistic budget based on income, expenses, savings goals, and debt obligations. Prioritize financial stability and savings.
+
+---
+
+Savings Goal Prompt
+
+Estimate the completion date of the user's savings goal and suggest ways to reach it faster.
+
+---
+
+Debt Analysis Prompt
+
+Analyze borrowed money and money owed to the user. Suggest repayment priorities and collection reminders.
+
+---
+
+Affordability Prompt
+
+Determine whether a planned purchase is financially safe based on balance, upcoming expenses, savings goals, and spending trends.
+
+---
+
+# Database Structure
+
+Google Sheet Tabs
+
+1. Expenses
+2. Income
+3. Borrowed
+4. Receivables
+5. Goals
+6. Budget
+7. Notifications
+8. User Settings
+
+---
+
+# Development Roadmap
+
+STEP 1
+Create Google Sheet structure.
+
+STEP 2
+Create Apps Script APIs.
+
+STEP 3
+Build Flutter Login Screen.
+
+STEP 4
+Build Dashboard (with balance overview, daily budget, and quick actions).
+
+STEP 5
+Build Expense Tracker (add transactions, set categories, need vs want).
+
+STEP 6
+Build Income Tracker [NEW] (screen to log monthly allowance, salaries, or external income).
+
+STEP 7
+Build Borrowed Money Tracker.
+
+STEP 8
+Build Money Owed To Me Tracker (with WhatsApp reminder intent launch).
+
+STEP 9
+Build Savings Goal System (target amounts, deadlines, and deposit dialog).
+
+STEP 10
+Build User Settings Screen [NEW] (update profile, set monthly income/budgets, customize emergency thresholds).
+
+STEP 11
+Implement Local Database Cache & Sync [NEW] (implement offline database caching using `shared_preferences` / SQLite / Hive so the app remains fully functional without internet and automatically syncs to Google Sheets when online).
+
+STEP 12
+Integrate Gemini AI (integrate `google_generative_ai` package, manage secure API key configs, set up specialized prompt templates).
+
+STEP 13
+Build AI Chat Screen (AI Financial Coach chat screen with typing indicators and context-aware responses using user financial logs).
+
+STEP 14
+Add QR Scanner (integrate `mobile_scanner` or similar package to scan UPI QR codes).
+
+STEP 15
+Add UPI Intent Launch (use `url_launcher` to safely parse and invoke external payment apps like Google Pay via `upi://pay...` schemes after showing budget warning alerts).
+
+STEP 16
+Add Smart Notifications (scheduled daily reminders, budget alerts, and receivable warnings).
+
+STEP 17
+Add Spending Prediction (Gemini-powered forecasting of monthly budget usage and savings completion timeline).
+
+STEP 18
+Add Emergency Mode (active low-balance alerts with recommendations).
+
+STEP 19
+Add Need vs Want Classification reports (visual breakdowns of impulsive wants vs required needs).
+
+STEP 20
+Testing (comprehensive analysis, offline integration testing, and bug fixing).
+
+STEP 21
+Personal Daily Usage.
+
+STEP 22
+Public Release.
+
+STEP 23
+Implement Gemini Voice Assistant & Android App Actions Integration (enable users to log expenses hands-free using system voice commands like "Hey Gemini, add food expense for 20 rupees").
+
+STEP 24 (Done)
+debts add like for example if i borrow money 100 ruppes but i give 50 so i want to edit that same time i want to add ooption for exampbe 1srt day fahad give me 100 then 2nd day i will give 50 ruppes 3rd day i borrow 5000 i want that feature
