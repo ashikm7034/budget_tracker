@@ -205,6 +205,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
       final userId = _authState.userId;
       if (userId.isEmpty) throw Exception('No authenticated user session found');
 
+      await ApiService().markAllAsUnsynced(userId);
+
       final result = await ApiService().cloudUpdate(userId);
       final syncedCount = result['syncedCount'] ?? 0;
 

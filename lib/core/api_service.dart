@@ -650,5 +650,18 @@ class ApiService {
       'syncedCount': unsyncedCount,
     };
   }
+
+  Future<void> markAllAsUnsynced(String userId) async {
+    final tables = ['expenses', 'income', 'borrowed', 'receivables', 'goals', 'notifications'];
+    for (final table in tables) {
+      final localList = await _getLocalTable(userId, table);
+      final updatedList = localList.map((item) {
+        final map = Map<String, dynamic>.from(item);
+        map['isSynced'] = false;
+        return map;
+      }).toList();
+      await _setLocalTable(userId, table, updatedList);
+    }
+  }
 }
 
