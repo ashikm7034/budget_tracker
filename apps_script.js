@@ -16,7 +16,7 @@
 var SCHEMAS = {
   "User Settings": ["userId", "email", "pin", "userName", "currency", "emergencyThreshold", "createdAt"],
   "Expenses": ["id", "userId", "amount", "category", "note", "date", "paymentMethod", "needOrWant"],
-  "Income": ["id", "userId", "amount", "source", "date", "note"],
+  "Income": ["id", "userId", "amount", "source", "date", "note", "paymentMethod"],
   "Borrowed": ["id", "userId", "personName", "amount", "borrowDate", "dueDate", "status", "ledger"],
   "Receivables": ["id", "userId", "personName", "amount", "date", "reminderStatus", "status", "ledger"],
   "Goals": ["id", "userId", "goalName", "targetAmount", "currentSavedAmount", "deadline"],
